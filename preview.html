@@ -1,0 +1,380 @@
+بێگومان! من پرۆمپتێ دکما سافیکرن ب تەواوی گۆهۆڕی و ئەو دەقێ تە دڤێت ل سەر هاتە دانان.
+فەرموو ئەڤە کۆدێ نووکرى و تەواو یێ مالپەرا شۆپیفای:
+<div id="db-passport-wrapper" dir="rtl">
+  <style>
+    #db-passport-wrapper {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --primary-color: #6366f1;
+      --text-color: #f8fafc;
+      --border-color: #334155;
+      
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding: 2.5rem;
+      border-radius: 16px;
+      font-family: Tahoma, Arial, sans-serif;
+      max-width: 850px;
+      margin: 2rem auto;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      text-align: right;
+    }
+    
+    #db-passport-wrapper * {
+      box-sizing: border-box;
+    }
+    
+    #db-passport-wrapper h2 {
+      text-align: center;
+      font-size: 1.9rem;
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      color: var(--text-color);
+    }
+    
+    #db-passport-wrapper p.subtitle {
+      text-align: center;
+      color: #94a3b8;
+      font-size: 1.15rem;
+      margin-top: 0;
+      margin-bottom: 2.5rem;
+      line-height: 1.5;
+    }
+
+    #db-passport-wrapper .section-box {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.8rem;
+      margin-bottom: 1.8rem;
+    }
+
+    #db-passport-wrapper .section-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-color);
+    }
+
+    #db-passport-wrapper .section-title span {
+      background: var(--primary-color);
+      color: white;
+      width: 32px;
+      height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      margin-left: 10px;
+    }
+
+    #db-passport-wrapper .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 14px;
+    }
+
+    #db-passport-wrapper .option-btn {
+      background-color: rgba(15, 23, 42, 0.5);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      padding: 16px 10px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 500;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #db-passport-wrapper .option-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: rgba(99, 102, 241, 0.15);
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    #db-passport-wrapper .option-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    #db-passport-wrapper .option-btn:hover {
+      border-color: var(--primary-color);
+      background-color: rgba(99, 102, 241, 0.1);
+    }
+
+    #db-passport-wrapper .option-btn:hover .option-icon {
+      background-color: rgba(99, 102, 241, 0.25);
+    }
+
+    #db-passport-wrapper .option-btn.active {
+      border-color: var(--primary-color);
+      background-color: rgba(99, 102, 241, 0.2);
+      box-shadow: 0 0 0 1px var(--primary-color);
+    }
+
+    #db-passport-wrapper .option-btn.active .option-icon {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    #db-passport-wrapper .prompt-area {
+      background-color: #000;
+      color: #0f0;
+      font-family: monospace;
+      padding: 1.2rem;
+      border-radius: 8px;
+      width: 100%;
+      min-height: 140px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 1.2rem;
+      text-align: left;
+      direction: ltr;
+      resize: vertical;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    #db-passport-wrapper .action-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    #db-passport-wrapper .btn {
+      padding: 14px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+      font-family: inherit;
+      font-size: 1.1rem;
+      color: white;
+      text-decoration: none;
+    }
+
+    #db-passport-wrapper .btn-outline {
+      background-color: transparent;
+      border: 1px solid var(--border-color);
+    }
+    #db-passport-wrapper .btn-outline:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    #db-passport-wrapper .btn-gemini {
+      background: linear-gradient(45deg, #a855f7, #ec4899);
+    }
+    #db-passport-wrapper .btn-gemini:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+  </style>
+
+  <h2>دروستکەرێ پرۆمپتێ پاسەپۆرتێ</h2>
+  <p class="subtitle">هەلبژاردنێن خۆ دیار بکە، ئيعازی دروستکری کۆپی بکە و ئێکەسەر ل گەل وێنەیێ خۆ د Gemini دا پەیس بکە.</p>
+
+  <div class="section-box">
+    <div class="section-title">
+<span>1</span> بەشێ ئێكێ: ڕەگەز یان جۆرێ وێنەی</div>
+    <div class="options-grid" id="db-gender-options">
+      <button class="option-btn" data-value="Male">
+        <div class="option-icon">
+          <svg viewbox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </div>
+        زەڵام (Man)
+      </button>
+      <button class="option-btn" data-value="Female">
+        <div class="option-icon">
+          <svg viewbox="0 0 24 24"><path d="M12 15a7 7 0 1 0 0-14 7 7 0 0 0 0 14z"></path><path d="M12 15v6"></path><path d="M9 19h6"></path></svg>
+        </div>
+        ئافرەت (Woman)
+      </button>
+      <button class="option-btn active" data-value="Neutral">
+        <div class="option-icon">
+          <svg viewbox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="10" r="2"></circle><path d="M15 8h2M15 12h2M7 16h10"></path></svg>
+        </div>
+        بتنێ پاسەپۆرتا ئاسایی
+      </button>
+    </div>
+  </div>
+
+  <div class="section-box">
+    <div class="section-title">
+<span>2</span> بەشێ دووێ: شێواز و دەستکاریێن زێدە</div>
+    <div class="options-grid" id="db-modifier-options">
+      <button class="option-btn" data-value="wearing a formal suit and tie">
+        <div class="option-icon">
+          <svg viewbox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle><path d="M12 11v4l3 3M12 11l-3 3"></path></svg>
+        </div>
+        قات و ڕبات
+      </button>
+      <button class="option-btn" data-value="wearing casual summer clothes">
+        <div class="option-icon">
+          <svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+        </div>
+        جلکێن هاڤینێ
+      </button>
+      <button class="option-btn" data-value="wearing warm winter clothes">
+        <div class="option-icon">
+          <svg viewbox="0 0 24 24"><path d="M12 2v20M17 5l-5 5-5-5M17 19l-5-5-5 5M2 12h20"></path></svg>
+        </div>
+        جلکێن زڤستانێ
+      </button>
+      <button class="option-btn" data-value="in a highly detailed 3D Pixar animation style">
+        <div class="option-icon">
+          <svg viewbox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+        </div>
+        ئەنیمەیشن (3D)
+      </button>
+      <button class="option-btn" data-value="remove any blue ink or pen marks from the face">
+        <div class="option-icon">
+          <svg viewbox="0 0 24 24"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg>
+        </div>
+        ڕاکرنا حبرێ شێن
+      </button>
+      <button class="option-btn" data-value="clean shaven, completely remove beard">
+        <div class="option-icon">
+          <svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+        </div>
+        ژێبرنا ڕیهێ
+      </button>
+      <button class="option-btn" data-value="completely remove mustache">
+        <div class="option-icon">
+          <svg viewbox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3c0 1.5 3 4 3 4s3-2.5 3-4a3 3 0 0 0-3-3z"></path><path d="M5 12h14v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7z"></path></svg>
+        </div>
+        ژێبرنا سمبێلان
+      </button>
+      <button class="option-btn" data-value="adjust colors to be highly natural and realistic, reducing any unnatural saturation or color casts">
+        <div class="option-icon">
+          <svg viewbox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5"></circle><circle cx="17.5" cy="10.5" r=".5"></circle><circle cx="8.5" cy="7.5" r=".5"></circle><circle cx="6.5" cy="12.5" r=".5"></circle><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.504 5.555-5.555C21.998 6.45 17.5 2 12 2z"></path></svg>
+        </div>
+        ڕەنگێن سروشتی
+      </button>
+      <button class="option-btn" data-value="Enhance this photo professionally while keeping the person exactly the same (same face, features, and identity). Skin retouching: Smooth and clean the skin thoroughly: remove blemishes, spots, acne, redness, dark circles, and uneven skin tone. Make the skin look soft, clear, and glowing, with an even tone. Keep a natural look with subtle skin texture, not a plastic or fake look. General: Increase sharpness and clarity, reduce noise. Correct lighting, contrast, and colors. Clean studio-quality look, high resolution (4K). Do not change the face shape, eyes, hair, clothes, or background elements">
+        <div class="option-icon">
+          <svg viewbox="0 0 24 24"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"></path></svg>
+        </div>
+        سافیکرن
+      </button>
+      <button class="option-btn" data-value="enhance overall image sharpness and clarity of the attached photo while strictly keeping the original face and identity unchanged">
+        <div class="option-icon">
+          <svg viewbox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+        </div>
+        Sharpen
+      </button>
+      <button class="option-btn" data-value="rendered in ultra-realistic 8K resolution">
+        <div class="option-icon">
+          <svg viewbox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        کوالیتیا 8K
+      </button>
+    </div>
+  </div>
+
+  <div class="section-box">
+    <div class="section-title">
+<span>3</span> بەشێ سیێ: ئيعازێ ئامادەکرى</div>
+    <textarea id="db-prompt-output" class="prompt-area" readonly></textarea>
+    
+    <div class="action-buttons">
+      <button class="btn btn-outline" onclick="dbCopyPromptOnly()">
+         کۆپی کرنا پرۆمپتی
+      </button>
+      <a href="https://gemini.google.com" target="_blank" class="btn btn-outline">
+         بچە د ناڤ Gemini دا
+      </a>
+      <button class="btn btn-gemini" onclick="dbCopyAndGoGemini()">
+         کۆپی بکە و بچە Gemini
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const dbGenderBtns = document.querySelectorAll('#db-gender-options .option-btn');
+    const dbModifierBtns = document.querySelectorAll('#db-modifier-options .option-btn');
+    const dbPromptOutput = document.getElementById('db-prompt-output');
+
+    let dbSelectedGender = 'Neutral';
+    let dbSelectedModifiers = new Set();
+
+    function dbUpdatePrompt() {
+      let prompt = "Strictly preserve the exact facial identity, features, eyes, nose, mouth, expression, and bone structure of the person in the attached image with 100% fidelity. Do not alter or redraw the face. Transform the image into a professional standard passport photo following these strict specifications:\n";
+      prompt += "- Dimensions: Standard 3.5cm x 4.5cm passport size aspect ratio.\n";
+      prompt += "- Resolution: High density 300 pixels per centimeter (300 DPI).\n";
+      prompt += "- Background: Pure clean solid white background (#FFFFFF).\n";
+      prompt += "- Face Preservation: Keep the original face completely intact, only clean the background and standardize the lighting.\n";
+
+      if (dbSelectedGender === 'Male') {
+        prompt += "- Subject: Man.\n";
+      } else if (dbSelectedGender === 'Female') {
+        prompt += "- Subject: Woman.\n";
+      }
+
+      if (dbSelectedModifiers.size > 0) {
+        prompt += "- Additional modifications:\n" + Array.from(dbSelectedModifiers).map(m => "  * " + m).join("\n") + "\n";
+      }
+      
+      dbPromptOutput.value = prompt;
+    }
+
+    dbGenderBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        dbGenderBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        dbSelectedGender = btn.getAttribute('data-value');
+        dbUpdatePrompt();
+      });
+    });
+
+    dbModifierBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.classList.toggle('active');
+        const val = btn.getAttribute('data-value');
+        if (btn.classList.contains('active')) {
+          dbSelectedModifiers.add(val);
+        } else {
+          dbSelectedModifiers.delete(val);
+        }
+        dbUpdatePrompt();
+      });
+    });
+
+    function dbCopyPromptOnly() {
+      dbPromptOutput.select();
+      document.execCommand('copy');
+      alert('پرۆمپت هاتە کۆپیکرن!');
+    }
+
+    function dbCopyAndGoGemini() {
+      dbPromptOutput.select();
+      document.execCommand('copy');
+      window.open('https://gemini.google.com', '_blank');
+    }
+
+    dbUpdatePrompt();
+  </script>
+</div>
+
